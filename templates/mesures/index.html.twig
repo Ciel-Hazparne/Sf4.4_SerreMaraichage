@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Courbes de tendances{% endblock %}
+{#<?php#}
+{#if (isset($_GET["submit1"]))#}
+{#{#}
+{#header('http://127.0.0.1:8000/mesures/courebByDate');#}
+
+{#}#}
+{#?>#}
+
+{% block body %}
+    <style>
+        .example-wrapper { max-width: 600px; width: 100%; font: 18px/1.5 sans-serif; }
+    </style>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ render_chart(chart1) }} {# ajout du graphique chart1 #}
+                    </div>
+                    <div class="col-md-6">
+                        {{ render_chart(chart2) }} {# ajout du graphique chart2 #}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ render_chart(chart3) }} {# ajout du graphique chart3 #}
+                    </div>
+                    <div class="col-md-6">
+                        {{ render_chart(chart4) }} {# ajout du graphique chart4 #}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <form role="form" method="get">
+{#                    <div class="form-group">#}
+{#                        <label for="InputDate" class="form-label mt-4">Date début</label>#}
+{#                        <input name="datemin" type="date" value="form.minDate" class="form-control" id="InputDateMin" placeholder="Enter date">#}
+
+{#                        <label for="InputDate" class="form-label mt-4">Date fin</label>#}
+{#                        <input name="datemax" type="date" value="form.maxDate" class="form-control" id="InputDateMax" placeholder="Enter date">#}
+{#                    </div>#}
+{#                    <button type="submit" class="btn btn-primary" action="{{ path('mesures_courbe_By_Date')}}">#}
+                    <button type="submit" name="submit1" class="btn btn-primary" value="redirect">
+                        Rechercher par date
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

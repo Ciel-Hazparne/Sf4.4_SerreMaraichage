@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Veuillez vous connecter</h1>
+  {% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+  {% endif %}
+  <form action="{{ path('security_login') }}" method="post">
+    <div class="form-group">
+      <input placeholder="Adresse email..." requied name="_username" value ="{{lastUsername}}"
+             type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <input placeholder="Mode de passe..." requied name="_password"
+             type="password" class="form-control">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">Connexion</button>
+    </div>
+    <a href="/registration">Pas de compte ? Inscrivez-vous</a>
+  </form>
+  <div class="card border-primary mt-3 mb-3">
+    <div class="card-header">Identifiants stockés en base de données</div>
+    <div class="card-body">
+      <p class="card-text">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">Mot de passe</th>
+          <th scope="col">Rôle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>admin@sn.eh</td>
+          <td>useruser</td>
+          <td>ROLE_USER, ROLE_ADMIN</td>
+        </tr>
+        </tbody>
+      </table>
+      </p>
+    </div>
+  </div>
+{% endblock %}
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block title %}Connexion{% endblock %}#}
+
+{#{% block body %}#}
+{#  <div class="container mt-5">#}
+{#    <h1 style="text-align: center">Se connecter</h1>#}
+{#    <div class="row">#}
+{#      <div class="col-md-3">&nbsp;</div>#}
+{#      <div class="col-md-6">#}
+{#        <div class="bg-dark py-3 px-3">#}
+{#          {% if error %}#}
+{#            <div class="btn btn-danger">#}
+{#              Une erreur est survenue,vos identifiants sont incorrects#}
+{#            </div>#}
+{#          {% endif %}#}
+{#          <form action="{{ path('security_login') }}" method="post">#}
+{#            <div class="form-group">#}
+{#              <label for="email" class="text-dark">Email</label>#}
+{#              <input type="text" name="_username" id="email" class="form-control"#}
+{#                     placeholder="Adresse email" value="{{ username }}" required>#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#              <label for="password" class="text-dark">Mot de passe</label>#}
+{#              <input type="password" name="_password" id="password" class="form-control"#}
+{#                     placeholder="mot de passe" required>#}
+{#            </div>#}
+{#            <div class="checkbox mb-3">#}
+{#              <input type="checkbox" id="remember_me" name="_remember_me" checked/>#}
+{#              <label for="remember_me">Se souvenir de moi</label>#}
+{#              <table class="table table-sm bg-light">#}
+{#                <thead>#}
+{#                <tr>#}
+{#                  <th scope="col">email</th>#}
+{#                  <th scope="col">mdp</th>#}
+
+{#                </tr>#}
+{#                </thead>#}
+{#              </table>#}
+{#            </div><div class="form-group">#}
+{#              <button type="submit" class="btn btn-success"> connexion</button>#}
+{#            </div>#}
+{#          </form>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+
+{#  </div>#}
+{#{% endblock %}#}
